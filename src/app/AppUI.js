@@ -9,6 +9,7 @@ import { Search } from "../components/Search";
 import { TareasList } from "../components/TareasList";
 import { Item } from "../components/Item";
 import { CreateButton } from "../components/CreateButton";
+import TareaHeader from "../components/TareaHeader";
 
 // traemos anuestro modal
 import { Modal } from "../components/Modal";
@@ -30,14 +31,24 @@ function AppUI() {
     deleteTarea,
     completeTarea,
     openModal,
+    totalTareas,
+    completesTareas,
+    searchValue,
+    setSearchValue,
     // setOpenModal,
   } = React.useContext(TareaContex);
 
   return (
     // ponemos una etiqueta invisible
     <React.Fragment>
-      <TareasCounter />
-      <Search />
+      <TareaHeader>
+        <TareasCounter
+          totalTareas={totalTareas}
+          completesTareas={completesTareas}
+        />
+        <Search searchValue={searchValue} setSearchValue={setSearchValue} />
+      </TareaHeader>
+
       {/* esta es una opcion */}
       {/* <TareaContex.Consumer> */}
       {/* traemos el contexto de nuestra app, con el consumer */}
