@@ -20,6 +20,8 @@ import { EmptyTareas } from "../components/Skeleton/EmptyTareas";
 import { TareaError } from "../components/Skeleton/TareaError";
 import { TareasLoading } from "../components/Skeleton/TareasLoading";
 
+import { ChangeAlertWithStorageListener } from "../components/ChangeAlert/index";
+
 import "../css/App.css";
 
 function App() {
@@ -47,10 +49,7 @@ function App() {
           totalTareas={totalTareas}
           completesTareas={completesTareas}
         />
-        <Search
-          searchValue={searchValue}
-          setSearchValue={setSearchValue}
-        />
+        <Search searchValue={searchValue} setSearchValue={setSearchValue} />
       </TareaHeader>
 
       <TareasList
@@ -120,6 +119,8 @@ function App() {
       )}
 
       <CreateButton openModal={openModal} setOpenModal={setOpenModal} />
+
+      <ChangeAlertWithStorageListener />
     </React.Fragment>
   );
 }

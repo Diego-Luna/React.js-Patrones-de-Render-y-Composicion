@@ -1,35 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./css/index.css";
-// import App from "./app/App";
+import App from "./app/App";
 // import reportWebVitals from './reportWebVitals';
 
-function App(props) {
-  return (
-    <h1>
-      ¡{props.saludo}, {props.nombre} !
-    </h1>
-  );
-}
-
-function withSaludo(WrappedComponent) {
-  return function WrapperdComponentWithSaludo(saludo) {
-    return function ComponenteDeVerdad(props) {
-      return (
-        <React.Fragment>
-          <WrappedComponent {...props} saludo={saludo} />
-          <p>Estamos acompañando al WrappedComponent</p>
-        </React.Fragment>
-      );
-    };
-  };
-}
-
-const AppWithSaludo = withSaludo(App)("Buenos dias");
-
 ReactDOM.render(
-  // <App saludo="hola" nombre="Diego" />,
-  <AppWithSaludo nombre="Diego" />,
+  <App saludo="hola" nombre="Diego" />,
   document.getElementById("root")
 );
 
