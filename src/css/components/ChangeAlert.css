@@ -1,0 +1,38 @@
+.alert-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 72vh;
+  width: 100%;
+  background-color: black;
+  margin-top: 2%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 99;
+}
+
+.alert-container p {
+  color: white;
+  margin: 0;
+  /* margin-bottom: 2.5%; */
+  font-weight: bold;
+  font-size: 300%;
+}
+
+.alert-container button {
+  background-color: #42b5d3;
+  border: none;
+  width: 50%;
+  height: 100px;
+  color: white;
+  font-size: 150%;
+  font-weight: bold;
+  border-radius: 25px;
+}
+
+.alert-container button:hover {
+  box-shadow: 0px 5px 25px rgb(97 218 250 / 50%);
+}
