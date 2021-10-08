@@ -42,12 +42,15 @@ function App() {
   return (
     // ponemos una etiqueta invisible
     <React.Fragment>
-      <TareaHeader>
+      <TareaHeader loading={loading}>
         <TareasCounter
           totalTareas={totalTareas}
           completesTareas={completesTareas}
         />
-        <Search searchValue={searchValue} setSearchValue={setSearchValue} />
+        <Search
+          searchValue={searchValue}
+          setSearchValue={setSearchValue}
+        />
       </TareaHeader>
 
       <TareasList

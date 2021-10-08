@@ -1,8 +1,16 @@
 import React from "react";
 
+function TareaHeader({ children, loading }) {
+  // React.cloneElement(children, { loading: true });
 
-function TareaHeader({ children }) {
-  return <header>{children}</header>;
+  return (
+    <header>
+      {/* {children} */}
+      {React.Children.toArray(children).map((child) =>
+        React.cloneElement(child, { loading })
+      )}
+    </header>
+  );
 }
 
 export default TareaHeader;
