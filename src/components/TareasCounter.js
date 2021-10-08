@@ -1,8 +1,5 @@
 import React from "react";
 
-// importamos neustro contexto
-// import { TareaContex } from "../tareaContex";
-
 import "../css/components/TareasCounter.css";
 
 function TareasCounter({ totalTareas, completesTareas }) {

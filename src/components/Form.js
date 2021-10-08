@@ -1,13 +1,11 @@
 import React from "react";
 
-import { TareaContex } from "../tareaContex";
-
 import "../css/components/Form.css";
 
-function TareaFrom() {
+function TareaFrom({ addTarea, setOpenModal }) {
   const [newTareaValue, SetNewTareaValue] = React.useState("");
 
-  const { addTarea, setOpenModal } = React.useContext(TareaContex);
+  // const { addTarea, setOpenModal } = React.useContext(TareaContex);
 
   const onChange = (event) => {
     SetNewTareaValue(event.target.value);

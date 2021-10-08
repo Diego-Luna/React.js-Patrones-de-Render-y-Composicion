@@ -1,10 +1,10 @@
 import React from "react";
 import { useLocalStorage } from "./useLocalStorage";
 
-const TareaContex = React.createContext();
+// const TareaContex = React.createContext();
 
 // creamos el estado de nuestra aplicacion
-function TareaProvider(props) {
+function useTarea() {
   const {
     item: tareas,
     saveItem: saveTareas,
@@ -52,27 +52,21 @@ function TareaProvider(props) {
     saveTareas(newTareas);
   }
 
-  return (
-    <TareaContex.Provider
-      value={{
-        loading,
-        error,
-        tareas,
-        totalTareas,
-        searchValue,
-        filterTareas,
-        completesTareas,
-        openModal,
-        setOpenModal,
-        addTarea,
-        deleteTarea,
-        completeTarea,
-        setSearchValue,
-      }}
-    >
-      {props.children}
-    </TareaContex.Provider>
-  );
+  return {
+    loading,
+    error,
+    tareas,
+    totalTareas,
+    searchValue,
+    filterTareas,
+    completesTareas,
+    openModal,
+    setOpenModal,
+    addTarea,
+    deleteTarea,
+    completeTarea,
+    setSearchValue,
+  };
 }
 
-export { TareaContex, TareaProvider };
+export { useTarea };
