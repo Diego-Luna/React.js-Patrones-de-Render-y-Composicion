@@ -3,8 +3,6 @@ import React from "react";
 // importamos nuestro provider, (el estado de nuestra web app)
 import { useTarea } from "./useTareas";
 
-// import { AppUI } from "./AppUI";
-
 // los componentes
 import { TareasCounter } from "../components/TareasCounter";
 import { Search } from "../components/Search";
@@ -18,7 +16,6 @@ import { Modal } from "../components/Modal";
 import { TareaFrom } from "../components/Form";
 
 // los componentes de nuestro loading skeleton
-
 import { EmptyTareas } from "../components/Skeleton/EmptyTareas";
 import { TareaError } from "../components/Skeleton/TareaError";
 import { TareasLoading } from "../components/Skeleton/TareasLoading";
@@ -40,9 +37,6 @@ function App() {
     setSearchValue,
     addTarea,
     setOpenModal,
-
-    // setOpenModal,
-    // } = React.useContext(TareaContex);
   } = useTarea();
 
   return (
@@ -56,11 +50,31 @@ function App() {
         <Search searchValue={searchValue} setSearchValue={setSearchValue} />
       </TareaHeader>
 
-      {/* esta es una opcion */}
-      {/* <TareaContex.Consumer> */}
-      {/* traemos el contexto de nuestra app, con el consumer */}
-      {/* {() => ( */}
-      <TareasList>
+      <TareasList
+        error={error}
+        loading={loading}
+        tareas={tareas}
+        filterTareas={filterTareas}
+        onError={() => <TareaError error={error} />}
+        onLoading={() => (
+          <React.Fragment>
+            <TareasLoading /> <TareasLoading /> <TareasLoading />
+            <TareasLoading />
+          </React.Fragment>
+        )}
+        onEmptyTareas={() => <EmptyTareas />}
+        render={(t, i) => (
+          <Item
+            onDelete={() => deleteTarea(t.text)}
+            onComplete={() => completeTarea(t.text)}
+            completed={t.completed}
+            text={t.text}
+            key={i}
+          />
+        )}
+      />
+
+      {/* <TareasList>
         {error && <TareaError error={error} />}
         {loading && (
           <React.Fragment>
@@ -89,9 +103,7 @@ function App() {
                 key={i}
               />
             ))}
-      </TareasList>
-      {/* )} */}
-      {/* </TareaContex.Consumer> */}
+      </TareasList> */}
 
       {/* cuando openModal sea true, no renderice el componente Modal */}
       {!!openModal && (
