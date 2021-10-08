@@ -55,6 +55,7 @@ function App() {
         loading={loading}
         tareas={tareas}
         filterTareas={filterTareas}
+        searchValue={searchValue}
         onError={() => <TareaError error={error} />}
         onLoading={() => (
           <React.Fragment>
@@ -63,6 +64,9 @@ function App() {
           </React.Fragment>
         )}
         onEmptyTareas={() => <EmptyTareas />}
+        onEmptyTareasSearchResults={(text) => (
+          <p>No hay resultados para {text}</p>
+        )}
         render={(t, i) => (
           <Item
             onDelete={() => deleteTarea(t.text)}
