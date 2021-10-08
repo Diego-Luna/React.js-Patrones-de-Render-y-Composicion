@@ -16,10 +16,15 @@ function TareasList(props) {
         ? props.onEmptyTareasSearchResults(props.searchValue)
         : ""}
 
-      {props.filterTareas
+      {!props.loading
+        ? props.filterTareas
+          ? props.filterTareas.map((t, i) => props.render(t, i))
+          : props.tareas.map((t, i) => props.render(t, i))
+        : ""}
+
+      {/* {props.filterTareas
         ? props.filterTareas.map((t, i) => props.render(t, i))
-        : props.tareas.map((t, i) => props.render(t, i))}
-      {/* {props.children} */}
+        : props.tareas.map((t, i) => props.render(t, i))} */}
     </section>
   );
 }
