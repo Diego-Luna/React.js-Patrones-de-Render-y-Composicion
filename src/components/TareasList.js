@@ -12,7 +12,7 @@ function TareasList(props) {
 
       {!props.loading && !props.tareas.length ? props.onEmptyTareas() : ""}
 
-      {props.searchValue && props.filterTareas.length <= 0
+      {!props.loading && props.searchValue && props.filterTareas.length <= 0
         ? props.onEmptyTareasSearchResults(props.searchValue)
         : ""}
 
