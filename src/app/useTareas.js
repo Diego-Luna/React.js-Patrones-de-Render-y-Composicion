@@ -10,6 +10,7 @@ function useTarea() {
     saveItem: saveTareas,
     loading,
     error,
+    sincronizeItem: sincronizeTareas,
   } = useLocalStorage("TAREAS_V1", []);
 
   // para crear un estado en una funciona, con react hooks
@@ -66,6 +67,7 @@ function useTarea() {
     deleteTarea,
     completeTarea,
     setSearchValue,
+    sincronizeTareas,
   };
 }
 

@@ -39,6 +39,7 @@ function App() {
     setSearchValue,
     addTarea,
     setOpenModal,
+    sincronizeTareas,
   } = useTarea();
 
   return (
@@ -120,7 +121,7 @@ function App() {
 
       <CreateButton openModal={openModal} setOpenModal={setOpenModal} />
 
-      <ChangeAlertWithStorageListener />
+      <ChangeAlertWithStorageListener sincronize={sincronizeTareas} />
     </React.Fragment>
   );
 }
